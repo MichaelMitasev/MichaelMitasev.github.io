@@ -1,12 +1,41 @@
 <title>CSE 571 Project Site</title>
 <body>
 <p>Michael Mitasev and Ryan Benmalek's project blog, coming soon.</p>
-<p>At a glance: Our goal is to explore models for observation, state estimation, and control in <a href="https://gym.openai.com/envs/DoomDefendLine-v0"> OpenAi Gym's Doom environment</a></p>
+<p>
+	At a glance: Our goal is to explore models for observation, state estimation, and control in <a href="https://gym.openai.com/envs/DoomDefendLine-v0"> OpenAi Gym's Doom environment.</a>
+</p>
 
 
 <l>
-  <li>First Stage: Observation and Classification</li>
+  <li>First Stage: Observation</li>
   <li>Second Stage: Motion Model</li>
   <li>Third Stage: DQN Learned Policy</li>
 <l>
+
+<P>
+	By 11/15, we intend to complete the observation portion. 
+	This entails training a modified version of the <a href="https://arxiv.org/abs/1506.02640">You Only Look Once (YOLO) algorithm</a> to predict bounding boxes for monsters based on images provided by the environment.
+</p>
+<p>
+	For the midterm evaluation on 11/22, we would like to be able to demo the observation portion, along with a conversion from the bounding boxes provided by YOLO to a polar grid with monster probabilities.
+</p>
+<p>
+	The next step after observation will be to build a model of the state through time (where monsters are in relation to our character). 
+	The character has a limited field of view, so it will be necessary to develop a motion model to reason about where monsters that we have turned away from are.
+	This should be completed by 11/29
+</p>
+<p>
+	Lastly, we plan to use the motion model as input for learning a policy.
+	We will aim to complete this by the final deadline.
+	
+</p>
+<p>
+	If all of these parts are completed, there are a number of potentially interesting extensions. 
+	One would be to compare the results of this end-to-end approach with one similar <a href="https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf">https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf,</a>
+	in which researches at deepmind used deep reinforcement learning to learn policy using the raw pixels as input.
+
+	Conversely, there are simplifying changes which could be made should the project prove too difficult. For example, by restricting the enemies to a type that runs at a constant rate towards the player,
+	we could eliminate the need for a motion model.
+</p>
+
 </body>
