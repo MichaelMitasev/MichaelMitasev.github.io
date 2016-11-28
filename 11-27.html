@@ -1,0 +1,27 @@
+<title>11-27 Update</title>
+
+<strong>11-27 Update</strong>
+<p>
+	After our midterm meeting, we did some further research into what VizDoom offers.
+	We found two buffers besides the screen buffer and the depth buffer which may prove useful.
+</p>
+
+<strong>Labels Buffer</strong>
+<p>
+	One difficulty we were running into was that training against the raw depth buffer, we needed some way to screen out walls. The labels buffer provides this - it includes information about which pixels of the depth buffer correspond to which object, along with class and rotation for each object. 
+	<br/>
+	This will allow us to train YOLO end to end, as it was meant to be trained.
+	Below is an example label buffer image.
+	<br/>
+	<img src="labels.png" alt="label buffer" style="width:400px;height:301px">
+</p>
+
+<strong>Automap Buffer</strong>
+<p>
+	The automap buffer gives a top down 'mini map' type representation of the game state.
+	Depending on settings, it can also be set to display all of the objects in the game along with boxes representing their size (this is shown below). 
+	<br/>
+	This will be useful for trying to learn a policy directly from the occupancy map, in the event that building from YOLO is unsuccessful. 
+	<br/>
+	<img src="automapboxes.png" alt="label buffer" style="width:400px;height:320px">
+</p>
